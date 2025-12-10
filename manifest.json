@@ -1,6 +1,6 @@
 {
-    "name": "نور حياتي",
-    "short_name": "نور حياتي",
+    "name": "ذكرياتنا",
+    "short_name": "ذكرياتنا",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffd6e8",
@@ -8,14 +8,14 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "https://cdn-icons-png.flaticon.com/512/2904/2904973.png",
+            "src": "song_cover.jpeg",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/jpeg"
         },
         {
-            "src": "https://cdn-icons-png.flaticon.com/512/2904/2904973.png",
+            "src": "song_cover.jpeg",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/jpeg"
         }
     ]
 }
