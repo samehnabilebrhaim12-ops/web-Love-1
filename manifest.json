@@ -10,12 +10,26 @@
         {
             "src": "song_cover.jpeg",
             "sizes": "192x192",
-            "type": "image/jpeg"
+            "type": "image/jpeg",
+            "purpose": "any maskable"
         },
         {
             "src": "song_cover.jpeg",
             "sizes": "512x512",
-            "type": "image/jpeg"
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "song_cover.jpeg",
+            "sizes": "144x144",
+            "type": "image/jpeg",
+            "purpose": "any"
+        },
+        {
+            "src": "song_cover.jpeg",
+            "sizes": "96x96",
+            "type": "image/jpeg",
+            "purpose": "any"
         }
     ]
 }

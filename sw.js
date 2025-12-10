@@ -1,4 +1,4 @@
-const CACHE_NAME = 'love-app-v1';
+const CACHE_NAME = 'love-app-v2';
 const ASSETS = [
     '/',
     '/index.html',
@@ -13,6 +13,13 @@ const ASSETS = [
     '/script.js',
     '/protection.js',
     '/manifest.json',
+    '/song_cover.jpeg',
+    '/photo1.jpeg',
+    '/photo2.jpeg',
+    '/photo3.jpeg',
+    '/photo4.jpeg',
+    '/photo5.jpeg',
+    '/photo6.jpeg',
     'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap'
 ];
 

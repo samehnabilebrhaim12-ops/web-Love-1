@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار PWA - ذكرياتنا</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="song_cover.jpeg" type="image/jpeg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ff99cc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+        }
+
+        h1 {
+            color: #ff1493;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #ff1493;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #ff1493;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-box p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .status-icon {
+            font-size: 24px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .icon-preview {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .icon-preview img {
+            width: 128px;
+            height: 128px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+        }
+
+        .success {
+            color: #28a745;
+        }
+
+        .error {
+            color: #dc3545;
+        }
+
+        .warning {
+            color: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎵 اختبار تطبيق ذكرياتنا</h1>
+
+        <div class="icon-preview">
+            <img src="song_cover.jpeg" alt="أيقونة التطبيق">
+            <p style="margin-top: 10px; color: #666;">أيقونة التطبيق</p>
+        </div>
+
+        <div class="info-box">
+            <h3>📱 معلومات التطبيق</h3>
+            <p><strong>الاسم:</strong> ذكرياتنا</p>
+            <p><strong>الأيقونة:</strong> صورة الأغنية</p>
+            <p><strong>اللون:</strong> وردي (#ff1493)</p>
+        </div>
+
+        <div class="info-box">
+            <h3>✅ حالة PWA</h3>
+            <div id="manifestStatus" class="status">
+                <span class="status-icon">⏳</span>
+                <span>جاري التحقق من Manifest...</span>
+            </div>
+            <div id="swStatus" class="status">
+                <span class="status-icon">⏳</span>
+                <span>جاري التحقق من Service Worker...</span>
+            </div>
+            <div id="iconStatus" class="status">
+                <span class="status-icon">⏳</span>
+                <span>جاري التحقق من الأيقونة...</span>
+            </div>
+        </div>
+
+        <button class="btn" onclick="window.location.href='index.html'">
+            🔐 الذهاب للصفحة الرئيسية
+        </button>
+
+        <button class="btn" onclick="checkPWA()" style="background: linear-gradient(135deg, #9932cc, #da70d6);">
+            🔄 إعادة الفحص
+        </button>
+    </div>
+
+    <script>
+        async function checkPWA() {
+            // Check Manifest
+            try {
+                const response = await fetch('manifest.json');
+                const manifest = await response.json();
+
+                const manifestStatus = document.getElementById('manifestStatus');
+                if (manifest.name === 'ذكرياتنا') {
+                    manifestStatus.innerHTML = '<span class="status-icon success">✅</span><span class="success">Manifest صحيح - الاسم: ' + manifest.name + '</span>';
+                } else {
+                    manifestStatus.innerHTML = '<span class="status-icon error">❌</span><span class="error">خطأ في Manifest</span>';
+                }
+
+                // Check icons
+                const iconStatus = document.getElementById('iconStatus');
+                if (manifest.icons && manifest.icons.length > 0) {
+                    iconStatus.innerHTML = '<span class="status-icon success">✅</span><span class="success">تم العثور على ' + manifest.icons.length + ' أيقونات</span>';
+                } else {
+                    iconStatus.innerHTML = '<span class="status-icon error">❌</span><span class="error">لم يتم العثور على أيقونات</span>';
+                }
+            } catch (error) {
+                document.getElementById('manifestStatus').innerHTML = '<span class="status-icon error">❌</span><span class="error">خطأ في قراءة Manifest</span>';
+            }
+
+            // Check Service Worker
+            const swStatus = document.getElementById('swStatus');
+            if ('serviceWorker' in navigator) {
+                try {
+                    const registration = await navigator.serviceWorker.getRegistration();
+                    if (registration) {
+                        swStatus.innerHTML = '<span class="status-icon success">✅</span><span class="success">Service Worker مفعل</span>';
+                    } else {
+                        swStatus.innerHTML = '<span class="status-icon warning">⚠️</span><span class="warning">Service Worker غير مسجل</span>';
+                    }
+                } catch (error) {
+                    swStatus.innerHTML = '<span class="status-icon error">❌</span><span class="error">خطأ في Service Worker</span>';
+                }
+            } else {
+                swStatus.innerHTML = '<span class="status-icon error">❌</span><span class="error">المتصفح لا يدعم Service Worker</span>';
+            }
+        }
+
+        // Run check on load
+        window.addEventListener('load', checkPWA);
+    </script>
+</body>
+
+</html>
