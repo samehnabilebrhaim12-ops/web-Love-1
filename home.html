@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نور حياتي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ff99cc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            direction: rtl;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+        }
+
+        .message-text {
+            font-size: 16px;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #ff1493;
+            font-weight: 700;
+        }
+
+        .emoji {
+            font-size: 20px;
+        }
+
+        .special-message {
+            color: #ff1493;
+            font-weight: 600;
+            font-size: 17px;
+            margin: 20px 0;
+        }
+
+        .start-btn {
+            margin-top: 30px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(255, 20, 147, 0.4);
+        }
+
+        .start-btn:active {
+            transform: translateY(0);
+        }
+
+        .footer-text {
+            color: #999;
+            font-size: 13px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 480px) {
+            .message-card {
+                padding: 40px 30px;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+
+            .message-text {
+                font-size: 15px;
+                line-height: 1.8;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="message-card">
+            <h1 class="title">احلي حد هدخل معاه السنه الجديده</h1>
+
+            <p class="message-text">
+                ربنا يخليكي ليا يارب وتكون سنه سعيده بيكي
+            </p>
+
+            <p class="special-message">
+                عايز اقولك حاجه من قلبي...
+            </p>
+
+            <p class="message-text">
+                انا بحبك بجد ومقدرش اشوفك زعلانه
+            </p>
+
+            <p class="message-text">
+                انتي اغلي شخص عندي، وكل لحظه حلوة في حياتي <span class="emoji">🫶</span>
+                <br>
+                ليها طعم لانك موجودة
+            </p>
+
+            <p class="message-text">
+                انتي سبب فرحتي وضحكتي وكل لحظه سعادة بعيشها
+            </p>
+
+            <p class="special-message">
+                بحبك اكتر مما اقدر اعبر بالكلام
+            </p>
+
+            <p class="message-text">
+                تعالي نشوف كام ميموري كده مع بعض
+            </p>
+
+            <button class="start-btn" onclick="goToMemories()">
+                📸 شوف الذكريات 💝
+            </button>
+
+            <br>
+
+            <button class="start-btn" onclick="goToVideos()"
+                style="margin-top: 15px; background: linear-gradient(135deg, #9932cc, #da70d6);">
+                🎥 شوف الفيديوهات 🎥
+            </button>
+
+            <p class="footer-text">اهداء من بخه يا قلبي ❤️</p>
+        </div>
+    </div>
+
+    <script>
+        function goToMemories() {
+            window.location.href = 'memories.html';
+        }
+
+        function goToVideos() {
+            window.location.href = 'videos.html';
+        }
+    </script>
+    <script src="protection.js"></script>
+</body>
+
+</html>

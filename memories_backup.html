@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ذكرياتنا 💝</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ff99cc 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            direction: rtl;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #fff;
+            font-size: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .memory-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out backwards;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .memory-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .memory-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .memory-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .memory-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .memory-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .memory-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .memory-card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .memory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+        }
+
+        /* Song Card Specific Styles */
+        .song-card {
+            background: linear-gradient(145deg, #fff0f5, #fff);
+            border: 2px solid #ff69b4;
+        }
+
+        .song-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .song-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 20, 147, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .song-card:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(255, 20, 147, 1);
+        }
+
+        .song-card:hover .song-image {
+            transform: scale(1.05);
+        }
+
+        /* Photo Cards Styles */
+        .memory-image-real {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .memory-card:hover .memory-image-real {
+            transform: scale(1.02);
+        }
+
+        .memory-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .memory-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ff1493;
+            margin-bottom: 10px;
+        }
+
+        .memory-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(255, 20, 147, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .gallery {
+                gap: 20px;
+            }
+
+            .back-btn {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+
+        /* Interactive Section Styles */
+        .interactive-section {
+            max-width: 600px;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            padding: 0 20px;
+            padding-bottom: 80px;
+        }
+
+        .gift-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .gift-btn.yellow {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .gift-btn.pink {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .gift-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-box {
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px solid white;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .special-text {
+            color: #ff1493;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .special-btn {
+            background: #ff1493;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .special-btn:hover {
+            background: #d1006b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+    </div>
+    </div>
+
+    <div class="memory-card">
+        <img src="photo2.jpeg" alt="Memory 2" class="memory-image-real">
+        <div class="memory-content">
+            <div class="memory-description">كل تفصيلة فيكي بتخليني أحبك أكتر 🌹</div>
+        </div>
+    </div>
+
+    <div class="memory-card">
+        <img src="photo3.jpeg" alt="Memory 3" class="memory-image-real">
+        <div class="memory-content">
+            <div class="memory-description">ضحكتك بتنور دنيتي كلها ✨</div>
+        </div>
+    </div>
+
+    <div class="memory-card">
+        <img src="photo4.jpeg" alt="Memory 4" class="memory-image-real">
+        <div class="memory-content">
+            <div class="memory-description">معاكي بحس إن العالم كله ملكي 🌍</div>
+        </div>
+    </div>
+
+    <div class="memory-card">
+        <img src="photo5.jpeg" alt="Memory 5" class="memory-image-real">
+        <div class="memory-content">
+            <div class="memory-description">ربنا يخليكي ليا وميحرمنيش منك أبداً 🤲</div>
+        </div>
+    </div>
+
+    <div class="memory-card">
+        <img src="photo6.jpeg" alt="Memory 6" class="memory-image-real">
+        <div class="memory-content">
+            <div class="memory-description">بحبك النهاردة وبكرة ولآخر العمر 💍</div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Interactive Section -->
+    <div class="interactive-section">
+        <a href="gift1.html" class="gift-btn yellow">
+            <span>🎁</span> افتح الهدية الأولى
+        </a>
+
+        <a href="gift2.html" class="gift-btn pink">
+            <span>🌹</span> افتح الهدية الثانية
+        </a>
+
+        <div class="special-box">
+            <div class="special-text">
+                <span>✨</span> في حاجه مهمة عايز اقولهالك <span>✨</span>
+            </div>
+            <a href="special.html" class="special-btn">
+                ❤️❤️ دوس هنا ❤️❤️
+            </a>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">
+        ⬅ رجوع
+    </button>
+
+    <script>
+        function goBack() {
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+
+</html>

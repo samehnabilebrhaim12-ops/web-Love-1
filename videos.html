@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فيديوهاتنا 🎥</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ff99cc 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            direction: rtl;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #fff;
+            font-size: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+            transition: all 0.3s ease;
+            animation: slideUp 0.6s ease-out backwards;
+        }
+
+        .video-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .video-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .video-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .video-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+        }
+
+        .video-wrapper {
+            width: 100%;
+            background: #000;
+            position: relative;
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .video-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .video-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ff1493;
+            margin-bottom: 10px;
+        }
+
+        .video-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .back-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(255, 20, 147, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .gallery {
+                gap: 20px;
+            }
+
+            .back-btn {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🎥 فيديوهاتنا الحلوة 🎥</h1>
+        <p>لحظاتنا اللي متتنسيش</p>
+    </div>
+
+    <div class="gallery">
+        <!-- Video 1 -->
+        <div class="video-card">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/videos1.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+            <div class="video-content">
+                <div class="video-title">أجمل ذكرى ❤️</div>
+                <div class="video-description">كل ثانية معاكي بتسوى الدنيا وما فيها، ربنا يخليكي ليا يا نور عيني.
+                </div>
+            </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-card">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/videos2.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+            <div class="video-content">
+                <div class="video-title">ضحكتك حياة 🌹</div>
+                <div class="video-description">لما بتضحكي الدنيا كلها بتضحكلي، انتي فرحة قلبي.</div>
+            </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-card">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/videos3.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+            <div class="video-content">
+                <div class="video-title">حب عمري 💍</div>
+                <div class="video-description">وعد مني هفضل جنبك وسندك طول العمر، بحبك يا أغلى الناس.</div>
+            </div>
+        </div>
+
+        <!-- Video 4 -->
+        <div class="video-card">
+            <div class="video-wrapper">
+                <video controls>
+                    <source src="videos/videos4.mp4" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+            <div class="video-content">
+                <div class="video-title">سعادتي معاكي ✨</div>
+                <div class="video-description">انتي الحلم اللي اتحقق، والواقع الأجمل من الخيال.</div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">
+        ⬅ رجوع
+    </button>
+
+    <script>
+        function goBack() {
+            window.location.href = 'home.html';
+        }
+    </script>
+    <script src="protection.js"></script>
+</body>
+
+</html>

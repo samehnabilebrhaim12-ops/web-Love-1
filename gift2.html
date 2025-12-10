@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهدية الثانية 🌹</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            font-family: 'Cairo', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .rose-container {
+            position: relative;
+            width: 200px;
+            height: 300px;
+            margin: 0 auto 30px;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .rose-head {
+            font-size: 150px;
+            line-height: 1;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            animation: bloom 2s ease-out forwards;
+            transform-origin: bottom center;
+        }
+
+        .message-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease-out 1s forwards;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .title {
+            color: #c2185b;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .text {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        @keyframes bloom {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .petal {
+            position: absolute;
+            font-size: 20px;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+
+        .back-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            padding: 12px 25px;
+            background: white;
+            color: #c2185b;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="rose-container">
+            <div class="rose-head">🌹</div>
+        </div>
+
+        <div class="message-card">
+            <div class="title">الورد للورد</div>
+            <div class="text">
+                زي ما الورد بيجمل الدنيا بجماله وريحته<br>
+                أنتي جملتي حياتي بوجودك فيها ❤️<br>
+                بحبك يا أجمل وردة في بستان عمري
+            </div>
+        </div>
+    </div>
+
+    <button class="back-btn" onclick="goBack()">⬅ رجوع</button>
+
+    <script>
+        function createPetals() {
+            setInterval(() => {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                petal.innerHTML = '🌸';
+                petal.style.left = Math.random() * 100 + 'vw';
+                petal.style.top = '-20px';
+                petal.style.animationDuration = Math.random() * 3 + 3 + 's';
+                document.body.appendChild(petal);
+
+                setTimeout(() => {
+                    petal.remove();
+                }, 6000);
+            }, 300);
+        }
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        createPetals();
+
+        function goBack() {
+            window.location.href = 'memories.html';
+        }
+    </script>
+    <script src="protection.js"></script>
+</body>
+
+</html>
