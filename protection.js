@@ -194,16 +194,7 @@
         document.head.appendChild(style);
     });
 
-    // 14. Hide content when window loses focus (Anti-Snipping Tool)
-    window.addEventListener('blur', function () {
-        document.body.style.visibility = 'hidden'; // Use visibility instead of display to keep layout
-        document.title = '⚠️ محتوى محمي';
-    });
-
-    window.addEventListener('focus', function () {
-        document.body.style.visibility = 'visible';
-        document.title = 'نور حياتي';
-    });
+    // Note: Removed blur/focus handlers as they interfere with iframe interactions
 
     // 15. CSS Print Protection
     const printStyle = document.createElement('style');
